@@ -19,6 +19,12 @@ public class TaiKhoanBo {
         return dao.getTaiKhoan(SoTaiKhoan, MatKhau);
     }
     
+    public String getTaiKhoan(String SoTaiKhoan)throws Exception
+    {
+        TaiKhoanDao dao = new TaiKhoanDao();
+        return dao.getTaiKhoan(SoTaiKhoan);
+    }
+    
     public int RutTien(String SoTaiKhoan, long SoTienRut, String NoiDung) throws Exception{
         TaiKhoanDao dao = new TaiKhoanDao();
         return dao.RutTien(SoTaiKhoan, SoTienRut, NoiDung);

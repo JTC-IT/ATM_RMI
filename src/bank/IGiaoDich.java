@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 public interface IGiaoDich extends Remote {
     public TaiKhoan Login(String SoTaiKhoan, String MatKhau)throws Exception;
+    public String getTaiKhoan(String SoTaiKhoan)throws Exception;
     public int RutTien(String SoTaiKhoan, long SoTienRut, String NoiDung) throws Exception;
     public int ChuyenTien(String SoTaiKhoan, String SoTaiKhoanNhan, long SoTien) throws Exception;
     public ArrayList<ChiTietTaiKhoan> getChiTietTaiKhoans(String SoTaiKhoan) throws Exception;

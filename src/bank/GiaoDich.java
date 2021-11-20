@@ -33,6 +33,11 @@ public class GiaoDich extends UnicastRemoteObject implements IGiaoDich {
     public TaiKhoan Login(String SoTaiKhoan, String MatKhau) throws Exception {
         return tkbo.Login(SoTaiKhoan, MatKhau);
     }
+    
+    public String getTaiKhoan(String SoTaiKhoan)throws Exception
+    {
+        return tkbo.getTaiKhoan(SoTaiKhoan);
+    }
 
     @Override
     public int RutTien(String SoTaiKhoan, long SoTienRut, String NoiDung) throws Exception {

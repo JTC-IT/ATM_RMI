@@ -34,6 +34,24 @@ public class TaiKhoanDao {
         return tk;
     }
     
+    public String getTaiKhoan(String SoTaiKhoan)throws Exception
+    {
+        DBConnect db = new DBConnect();
+        String tk = "";
+        sql = "select HoTen from TaiKhoan where SoTaiKhoan = ?";
+        
+        PreparedStatement ps = db.Connect().prepareStatement(sql);
+        ps.setString(1, SoTaiKhoan);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            tk = rs.getString("Hoten");
+        }
+        rs.close();
+        ps.close();
+        db.close();
+        return tk;
+    }
+    
     public int RutTien(String SoTaiKhoan, long SoTien, String NoiDung) throws Exception
     {
         int result = 0;

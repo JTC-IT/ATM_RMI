@@ -19,7 +19,7 @@ public class BANK_Server {
      */
     public static void main(String[] args) {
         try {
-            java.rmi.registry.Registry r = LocateRegistry.createRegistry(1099);
+            LocateRegistry.createRegistry(1099);
             GiaoDich giaoDich = new GiaoDich();
             //UnicastRemoteObject.exportObject(tt);
             //Dang ky 1 dia chi de may khach truy cap vao doi tuong tt
