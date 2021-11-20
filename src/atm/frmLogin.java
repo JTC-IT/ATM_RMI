@@ -20,8 +20,15 @@ public class frmLogin extends javax.swing.JFrame {
     /**
      * Creates new form frmLogin
      */
+    private IGiaoDich gd;
+    
     public frmLogin() {
-        initComponents();
+        try {
+            initComponents();
+            gd = (IGiaoDich) Naming.lookup("rmi://localhost/GiaoDich");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -154,7 +161,6 @@ public class frmLogin extends javax.swing.JFrame {
             }
             
             //check login
-            IGiaoDich gd = (IGiaoDich) Naming.lookup("rmi://localhost/GiaoDich");
             TaiKhoan user = gd.Login(SoTk, MatKhau);
             
             if(user == null){

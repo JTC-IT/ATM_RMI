@@ -20,8 +20,15 @@ public class frmRutTien extends javax.swing.JFrame {
     /**
      * Creates new form frmRutTien
      */
+    private IGiaoDich gd;
+    
     public frmRutTien() {
-        initComponents();
+        try {
+            initComponents();
+            gd = (IGiaoDich) Naming.lookup("rmi://localhost/GiaoDich");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
     
     public void formatMoney()
@@ -265,7 +272,7 @@ public class frmRutTien extends javax.swing.JFrame {
                 lblMess.setText("Số tiền trong tài khoản không đủ để rút!");
                 return;
             }
-            IGiaoDich gd = (IGiaoDich) Naming.lookup("rmi://localhost/GiaoDich");
+            
             int result = gd.RutTien(tk.getSoTaiKhoan(), sotien, "Rút tiền tại ATM");
             
             if(result == -3){
